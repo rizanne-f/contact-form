@@ -3,10 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
     <title>Contact Form</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <main>
+        <h1>Contact Us</h1>
     
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" required>
+        <p>This field is required</p>
+    
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" required>
+        <p>This field is required</p>
+    
+        <label for="email">Email Address</label>
+        <input type="email" id="email" required>
+        <p>Please enter a valid email address</p>
+        <p>This field is required</p>
+    
+        <label>Query Type</label>
+        <input type="radio" name="query-type" id="general-enquiry" value="general-enquiry">
+        <label for="general-enquiry">General Enquiry</label>
+        
+        <input type="radio" name="query-type" id="support-request" value="support-request">
+        <label for="support-request">Support Request</label>
+        <p>Please select a query type</p>
+    
+        <label for="message">Message</label>
+        <textarea id="message"></textarea>
+        <p>This field is required</p>
+    
+        <input type="checkbox" id="contact-consent">
+        <label for="contact-consent">I consent to being contacted by the team</label>
+        <p>To submit this form, please consent to being contacted</p>
+    
+        <button>Submit</button>
+    
+        <dialog>
+        Message Sent!
+        Thanks for completing the form. We'll be in touch soon!
+        </dialog>
+    </main>
 </body>
 </html>
