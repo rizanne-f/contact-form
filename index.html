@@ -25,13 +25,16 @@
             <div class="invalid feedback">Please enter a valid email address</div>
             <div class="empty feedback">This field is required</div>
         
-            <label>Query Type <span>*</span></label>
-            <input type="radio" name="query-type" id="general-enquiry" value="general-enquiry" required>
-            <label for="general-enquiry">General Enquiry</label>
-            
-            <input type="radio" name="query-type" id="support-request" value="support-request" required>
-            <label for="support-request">Support Request</label>
-            <div class="invalid feedback">Please select a query type</div>
+            <fieldset>
+                <legend>Query Type <span>*</span></legend>
+                <input type="radio" name="query-type" id="general-enquiry" value="general-enquiry" required>
+                <label for="general-enquiry">General Enquiry</label>
+                
+                <input type="radio" name="query-type" id="support-request" value="support-request" required>
+                <label for="support-request">Support Request</label>
+
+                <div class="invalid feedback">Please select a query type</div>
+            </fieldset>
         
             <label for="message">Message <span>*</span></label>
             <textarea id="message"></textarea>
