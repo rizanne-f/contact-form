@@ -1,0 +1,29 @@
+:root {
+/* COLORS */
+/* Primary */
+--Green-200: hsl(148, 38%, 91%);
+--Green-600: hsl(169, 82%, 27%);
+--Red: hsl(0, 66%, 54%);
+
+/* Neutral */
+--White: hsl(0, 0%, 100%);
+--Grey-500: hsl(186, 15%, 59%);
+--Grey-900: hsl(187, 24%, 22%);
+
+/* Font Size */
+--fs-labels: 1rem;
+
+/* Font Weight */
+--fw-regular: 400;
+--fw-bold: 700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+fieldset {
+    border: 0;
+}
