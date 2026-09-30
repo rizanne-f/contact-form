@@ -9,43 +9,50 @@
 </head>
 <body>
     <main>
-        <h1>Contact Us</h1>
-    
-        <label for="first-name">First Name</label>
-        <input type="text" id="first-name" required>
-        <p>This field is required</p>
-    
-        <label for="last-name">Last Name</label>
-        <input type="text" id="last-name" required>
-        <p>This field is required</p>
-    
-        <label for="email">Email Address</label>
-        <input type="email" id="email" required>
-        <p>Please enter a valid email address</p>
-        <p>This field is required</p>
-    
-        <label>Query Type</label>
-        <input type="radio" name="query-type" id="general-enquiry" value="general-enquiry">
-        <label for="general-enquiry">General Enquiry</label>
+        <form>
+            <h1>Contact Us</h1>
         
-        <input type="radio" name="query-type" id="support-request" value="support-request">
-        <label for="support-request">Support Request</label>
-        <p>Please select a query type</p>
-    
-        <label for="message">Message</label>
-        <textarea id="message"></textarea>
-        <p>This field is required</p>
-    
-        <input type="checkbox" id="contact-consent">
-        <label for="contact-consent">I consent to being contacted by the team</label>
-        <p>To submit this form, please consent to being contacted</p>
-    
-        <button>Submit</button>
-    
-        <dialog>
-        Message Sent!
-        Thanks for completing the form. We'll be in touch soon!
-        </dialog>
+            <label for="first-name">First Name <span>*</span></label>
+            <input type="text" id="first-name" required>
+            <div class="invalid feedback">This field is required</div>
+        
+            <label for="last-name">Last Name <span>*</span></label>
+            <input type="text" id="last-name" required>
+            <div class="invalid feedback">This field is required</div>
+        
+            <label for="email">Email Address <span>*</span></label>
+            <input type="email" id="email" required>
+            <div class="invalid feedback">Please enter a valid email address</div>
+            <div class="empty feedback">This field is required</div>
+        
+            <label>Query Type <span>*</span></label>
+            <input type="radio" name="query-type" id="general-enquiry" value="general-enquiry" required>
+            <label for="general-enquiry">General Enquiry</label>
+            
+            <input type="radio" name="query-type" id="support-request" value="support-request" required>
+            <label for="support-request">Support Request</label>
+            <div class="invalid feedback">Please select a query type</div>
+        
+            <label for="message">Message <span>*</span></label>
+            <textarea id="message"></textarea>
+            <div class="invalid feedback">This field is required</div>
+        
+            <input type="checkbox" id="contact-consent">
+            <label for="contact-consent">I consent to being contacted by the team <span>*</span></label>
+            <div class="invalid feedback">To submit this form, please consent to being contacted</div>
+        
+            <button type="submit">Submit</button>
+        </form>
     </main>
+
+    <dialog>
+        <div class="dialog-header">
+            <img src="./assets/images/icon-success-check.svg" > Message Sent!
+        </div>
+        
+        <div class="dialog-content">
+            Thanks for completing the form. We'll be in touch soon!
+        </div>
+    </dialog>
 </body>
 </html>
