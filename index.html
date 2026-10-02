@@ -9,7 +9,7 @@
 </head>
 <body>
     <main>
-        <form>
+        <form novalidate>
             <h1>Contact Us</h1>
         
             <div class="name">
@@ -54,7 +54,7 @@
         
             <div class="message">
                 <label for="message">Message <span class="required">*</span></label>
-                <textarea id="message" rows="3"></textarea>
+                <textarea id="message" rows="3" required></textarea>
                 <div class="invalid feedback">This field is required</div>
             </div>
         
@@ -78,5 +78,7 @@
             Thanks for completing the form. We'll be in touch soon!
         </div>
     </dialog>
+
+    <script src="./script.js"></script>
 </body>
 </html>
