@@ -79,6 +79,16 @@ label {
 
 .required { color: var(--Green-600); }
 
+.name label::after,
+.email label::after,
+legend::after,
+.message label::after,
+.contact-consent label span::after {
+    content: " *";
+    color: var(--Green-600);
+    white-space: nowrap;
+}
+
 .feedback {
     display: none;
     margin-top: 0.5rem;
