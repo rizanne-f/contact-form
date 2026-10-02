@@ -75,6 +75,27 @@ consent.addEventListener("change", () => {
     setValid(consent, consentFeedback);
 });
 
+// Get all focusable inputs excluding submit button/disabled field
+const inputs = Array.from(
+  form.querySelectorAll('input:not([type="submit"]):not([type="hidden"]):not([disabled]), select, textarea')
+);
+
+form.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    const target = e.target;
+
+    // Allow Enter to submit or add new lines in textarea
+    if (target.tagName === 'TEXTAREA') return;
+ 
+    // Move to the next field if it's not the last input
+    const currentIndex = inputs.indexOf(target);
+    if (currentIndex !== -1 && currentIndex < inputs.length - 1) {
+      e.preventDefault();
+      inputs[currentIndex + 1].focus();
+    }
+  }
+});
+
 
 // FORM SUBMISSION
 form.addEventListener("submit", (e) => {
