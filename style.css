@@ -79,7 +79,11 @@ label {
 
 .required { color: var(--Green-600); }
 
-.feedback { display: none; }
+.feedback {
+    display: none;
+    margin-top: 0.5rem;
+    color: var(--Red);
+}
 
 /* NAME AND EMAIL */
 .name > div { flex: 1; }
