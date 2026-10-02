@@ -107,7 +107,7 @@ fieldset {
 
 fieldset legend {
     font-weight: var(--fw-regular);
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 /* Custom Radio Buttons */
@@ -123,13 +123,13 @@ fieldset legend {
     flex: 1;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 1rem;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
     user-select: none;
     border: 1px solid var(--Grey-500);
     border-radius: 0.5rem;
-    padding: 1rem;
+    padding: .875rem 1.5rem;
     transition: background-color 0.2s, border-color 0.2s;
 }
 
@@ -147,7 +147,7 @@ fieldset legend {
     position: relative;
     min-width: 20px;
     min-height: 20px;
-    border: 2px solid var(--Grey-500);
+    border: 1px solid var(--Grey-500);
     border-radius: 50%;
     background-color: #fff;
     transition: all 0.2s ease-in-out;
@@ -203,21 +203,56 @@ textarea:hover {
 }
 
 /* CONTACT CONSENT */
-.contact-consent {
-    margin: 2.5rem 0;
-    font-size: 1rem;
+.contact-consent { margin: 2.75rem 0.25rem; }
+
+.consent-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 1.125rem;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
 }
 
-.contact-consent input {
-    margin-right: 0.75rem;
+.consent-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
-.contact-consent:checked {
-    background-image: url("./assets/images/icon-checkbox-check.svg");
+/* Default custom checkbox */
+.checkmark {
+  position: relative;
+  min-width: 18px;
+  min-height: 18px;
+  border: 2px solid var(--Grey-500);
+  border-radius: 4px;
+  background-color: #fff;
+  transition: all 0.2s ease-in-out;
 }
 
-.contact-consent label, button:hover { cursor: pointer; }
+/* Custom checkmark / SVG overlay */
+.checkmark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("./assets/images/icon-checkbox-check.svg") no-repeat center / 18px 18px;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
 
+/* Checkbox state */
+.contact-consent input:checked ~ .checkmark { border-color: #00796b; }
+.contact-consent input:checked ~ .checkmark::after { opacity: 1; }
+.contact-consent input:hover ~ .checkmark { border-color: #00796b; }
+
+/* Accessibility focus */
+.contact-consent input:focus-visible ~ .checkmark {
+  outline: 2px solid #00796b;
+  outline-offset: 2px;
+  border-color: #00796b;
+}
 
 /* BUTTON */
 button {
@@ -238,7 +273,7 @@ button:focus { outline: 0; }
 /* Media Query */
 @media (min-width: 30rem) {
     main { max-width: 46rem; }
-    textarea { min-height: 6rem; }
+    textarea { min-height: 6.25rem; }
     .name { flex-direction: row; }
     .query-type-container {
         display: flex;
