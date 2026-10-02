@@ -12,65 +12,139 @@
         <form novalidate>
             <h1>Contact Us</h1>
         
+            <!-- First Name and Last Name -->
             <div class="name">
                 <div class="first-name">
                     <label for="first-name">First Name <span class="required">*</span></label>
-                    <input type="text" id="first-name" required>
-                    <div class="invalid feedback">This field is required</div>
+                    <input
+                        type="text"
+                        id="first-name"
+                        placeholder="John"
+                        aria-describedby="first-name-error"
+                        aria-invalid="false"
+                        required
+                    >
+
+                    <div id="first-name-error" aria-live="polite" class="invalid feedback">
+                        This field is required
+                    </div>
                 </div>
                 
                 <div class="last-name">
                     <label for="last-name">Last Name <span class="required">*</span></label>
-                    <input type="text" id="last-name" required>
-                    <div class="invalid feedback">This field is required</div>
+                    <input
+                        type="text"
+                        id="last-name"
+                        placeholder="Doe"
+                        aria-describedby="last-name-error"
+                        aria-invalid="false"
+                        required
+                    >
+                    
+                    <div id="last-name-error" aria-live="polite" class="invalid feedback">
+                        This field is required
+                    </div>
                 </div>
             </div>
         
+            <!-- Email Address -->
             <div class="email">
                 <label for="email">Email Address <span class="required">*</span></label>
-                <input type="email" id="email" required>
-                <div class="invalid feedback">Please enter a valid email address</div>
-                <div class="empty feedback">This field is required</div>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="example@email.com"
+                    aria-describedby="email-invalid email-empty"
+                    aria-invalid="false"
+                    required
+                >
+                
+                <div id="email-invalid" aria-live="polite" class="invalid feedback">
+                    Please enter a valid email address
+                </div>
+                <div id="email-empty" aria-live="polite" class="empty feedback">
+                    This field is required
+                </div>
             </div>
         
+            <!-- Query Type Radio Buttons -->
             <fieldset>
                 <legend>Query Type <span class="required">*</span></legend>
                 <div class="query-type-container">
-                    <label class="query-type">
-                        <input type="radio" name="query-type" value="general-enquiry" required>
+                    <label for="general-enquiry" class="query-type">
+                        <input
+                            type="radio"
+                            name="query-type"
+                            id="general-enquiry"
+                            value="general-enquiry"
+                            aria-describedby="query-type-error"
+                            aria-invalid="false"
+                            required
+                        >
                         <span class="radio-mark"></span>
                         <span>General Enquiry</span>
                     </label>
 
-                    <label class="query-type">
-                        <input type="radio" name="query-type" value="support-request" required>
+                    <label for="support-request" class="query-type">
+                        <input
+                            type="radio"
+                            name="query-type"
+                            id="support-request"
+                            value="support-request"
+                            aria-describedby="query-type-error"
+                            aria-invalid="false"
+                            required
+                        >
                         <span class="radio-mark"></span>
                         <span>Support Request</span>
                     </label>
                 </div>
 
-                <div class="invalid feedback">Please select a query type</div>
+                <div id="query-type-error" aria-live="polite" class="invalid feedback">
+                    Please select a query type
+                </div>
             </fieldset>
         
+            <!-- Message Textarea -->
             <div class="message">
                 <label for="message">Message <span class="required">*</span></label>
-                <textarea id="message" rows="3" required></textarea>
-                <div class="invalid feedback">This field is required</div>
+                <textarea
+                    id="message"
+                    rows="3"
+                    aria-describedby="message-error"
+                    aria-invalid="false"
+                    required
+                ></textarea>
+
+                <div id="message-error" aria-live="polite" class="invalid feedback">
+                    This field is required
+                </div>
             </div>
         
+            <!-- Contact Consent Checkbox -->
             <div class="contact-consent">
                 <label for="contact-consent" class="consent-checkbox">
-                    <input type="checkbox" id="contact-consent">
+                    <input
+                        type="checkbox"
+                        id="contact-consent"
+                        aria-describedby="consent-error"
+                        aria-invalid="false"
+                        required
+                    >
                     <span class="checkmark"></span>
                     <span>I consent to being contacted by the team <span class="required">*</span></span>
                 </label>
-                <div class="invalid feedback">To submit this form, please consent to being contacted</div>
+
+                <div id="consent-error" aria-live="polite" class="invalid feedback">
+                    To submit this form, please consent to being contacted
+                </div>
             </div>
         
             <button type="submit">Submit</button>
         </form>
     </main>
 
+    <!-- Message Sent Dialog Confirmation -->
     <dialog>
         <div class="dialog-header">Message Sent!</div>
 

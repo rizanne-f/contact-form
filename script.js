@@ -19,51 +19,60 @@ const consentFeedback = document.querySelector(".contact-consent .feedback");
 // First Name
 firstName.addEventListener("input", (e) => {
     let value = e.target.value.trim();
-    if (value === "") return firstNameFeedback.style.display = "block";
-
-    firstNameFeedback.style.display = firstName.validity.valid ? "none" : "block";
+    if (value === "" || value === null || !firstName.validity.valid) {
+        return setInvalid(firstName, firstNameFeedback);
+    }
+    setValid(firstName, firstNameFeedback);
 });
 
 // Last Name
 lastName.addEventListener("input", (e) => {
     let value = e.target.value.trim();
-    if (value === "") return lastNameFeedback.style.display = "block";
-
-    lastNameFeedback.style.display = lastName.validity.valid ? "none" : "block";
+    if (value === "" || !lastName.validity.valid) {
+        return setInvalid(lastName, lastNameFeedback);
+    }
+    setValid(lastName, lastNameFeedback);
 });
 
 // Email Address
 email.addEventListener("input", (e) => {
     let value = e.target.value.trim();
-    if (value === null) {
+    if (value === "" ||value === null) {
         emailInvalidFeedback.style.display = "none";
-        emailEmptyFeedback.style.display =
-        email.validity.valid ? "none" : "block";
+        setInvalid(email, emailEmptyFeedback);
         return;
     }
 
     emailEmptyFeedback.style.display = "none";
-    emailInvalidFeedback.style.display = email.validity.valid ? "none" : "block";
+    
+    if (!email.validity.valid) {
+        return setInvalid(email, emailInvalidFeedback);
+    }
+    setValid(email, emailInvalidFeedback);
 });
 
 // Query Type
 queryType.forEach((radio) => {
     radio.addEventListener("change", () => {
-        queryTypeFeedback.style.display = "none";
+        setValid(radio, queryTypeFeedback);
     });
 });
 
 // Message
 message.addEventListener("input", (e) => {
     let value = e.target.value.trim();
-    if (value === "") return messageFeedback.style.display = "block";
-
-    messageFeedback.style.display = message.validity.valid ? "none" : "block";
+    if (value === "" ||value === null || !message.validity.valid) {
+        return setInvalid(message, messageFeedback);
+    }
+    setValid(message, messageFeedback);
 });
 
 // Consent
 consent.addEventListener("change", () => {
-    consentFeedback.style.display = consent.checked ? "none" : "block";
+    if (!consent.checked) {
+        return setInvalid(consent, consentFeedback);
+    }
+    setValid(consent, consentFeedback);
 });
 
 
@@ -74,23 +83,24 @@ form.addEventListener("submit", (e) => {
 
     // First name
     if (!firstName.validity.valid) {
-        firstNameFeedback.style.display = "block";
+        setInvalid(firstName, firstNameFeedback);
         valid = false;
     }
 
     // Last name
     if (!lastName.validity.valid) {
-        lastNameFeedback.style.display = "block";
+        setInvalid(lastName, lastNameFeedback);
         valid = false;
     }
 
     // Email
     if (!email.validity.valid) {
         valid = false;
+
         if (email.value === "") {
-            emailEmptyFeedback.style.display = "block";
+            setInvalid(email, emailEmptyFeedback);
         } else {
-            emailFeedback.style.display = "block";
+            setInvalid(email, emailInvalidFeedback);
         }
     }
 
@@ -106,7 +116,7 @@ form.addEventListener("submit", (e) => {
 
     // Message
     if (!message.validity.valid) {
-        messageFeedback.style.display = "block";
+        setInvalid(message, messageFeedback);
         valid = false;
     }
 
@@ -122,3 +132,15 @@ form.addEventListener("submit", (e) => {
         form.reset();
     }
 });
+
+function setInvalid(formField, feedback) {
+    feedback.style.display = "block";
+    formField.style.borderColor = "hsl(0, 66%, 54%)";
+    formField.setAttribute('aria-invalid', 'true');
+}
+
+function setValid(formField, feedback) {
+    feedback.style.display = "none";
+    formField.style.borderColor = "hsl(186, 15%, 59%)";
+    formField.setAttribute('aria-invalid', 'false');
+}
