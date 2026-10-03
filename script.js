@@ -150,7 +150,7 @@ form.addEventListener("submit", (e) => {
     }
 
     if (valid) {
-        dialog.show();
+        dialog.showModal();
         setTimeout(() => { dialog.close() }, 3000);
         form.reset();
     }
