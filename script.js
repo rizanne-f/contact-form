@@ -54,7 +54,7 @@ email.addEventListener("input", (e) => {
 // Query Type
 queryType.forEach((radio) => {
     radio.addEventListener("change", () => {
-        setValid(radio, queryTypeFeedback);
+        queryTypeFeedback.style.display = "none";
     });
 });
 
@@ -77,7 +77,9 @@ consent.addEventListener("change", () => {
 
 // Get all focusable inputs excluding submit button/disabled field
 const inputs = Array.from(
-  form.querySelectorAll('input:not([type="submit"]):not([type="hidden"]):not([disabled]), select, textarea')
+    form.querySelectorAll(
+        'input:not([type="submit"]):not([type="hidden"]):not([type="radio"]):not([disabled]), select, textarea'
+    )
 );
 
 form.addEventListener('keydown', (e) => {
