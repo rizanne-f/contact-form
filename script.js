@@ -18,7 +18,7 @@ const consentFeedback = document.querySelector(".contact-consent .feedback");
 
 // First Name
 firstName.addEventListener("input", (e) => {
-    let value = e.target.value.trim();
+    const value = e.target.value.trim();
     if (value === "" || !firstName.validity.valid) {
         return setInvalid(firstName, firstNameFeedback);
     }
@@ -27,7 +27,7 @@ firstName.addEventListener("input", (e) => {
 
 // Last Name
 lastName.addEventListener("input", (e) => {
-    let value = e.target.value.trim();
+    const value = e.target.value.trim();
     if (value === "" || !lastName.validity.valid) {
         return setInvalid(lastName, lastNameFeedback);
     }
@@ -36,7 +36,7 @@ lastName.addEventListener("input", (e) => {
 
 // Email Address
 email.addEventListener("input", (e) => {
-    let value = e.target.value.trim();
+    const value = e.target.value.trim();
     if (value === "") {
         emailInvalidFeedback.style.display = "none";
         setInvalid(email, emailEmptyFeedback);
@@ -60,7 +60,7 @@ queryType.forEach((radio) => {
 
 // Message
 message.addEventListener("input", (e) => {
-    let value = e.target.value.trim();
+    const value = e.target.value.trim();
     if (value === "" || !message.validity.valid) {
         return setInvalid(message, messageFeedback);
     }
