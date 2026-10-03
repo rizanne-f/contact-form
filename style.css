@@ -133,7 +133,7 @@ label {
 legend::after,
 .message label::after,
 .contact-consent label span:last-child::after {
-    content: " *";
+    content: " *" / "";
     color: var(--Green-600);
     white-space: nowrap;
 }
@@ -370,7 +370,7 @@ dialog {
     box-shadow: var(--shadow-dialog);
 }
 
-.dialog-header {
+#dialog-header {
     display: flex;
     align-items: center;
     margin-bottom: 0.8125rem;
@@ -378,7 +378,7 @@ dialog {
     font-size: var(--fs-radio);
 }
 
-.dialog-header::before {
+#dialog-header::before {
     content: "";
     display: inline-block;
     flex-shrink: 0;
